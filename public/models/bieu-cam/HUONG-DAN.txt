@@ -1,0 +1,19 @@
+BIỂU CẢM DÙNG CHUNG CHO MỌI LOÀI CÁ
+===================================
+Ảnh được dán lên vị trí mắt của từng con (mô hình dựng sẵn: tự biết vị trí mắt;
+mô hình .glb tự thêm: khai báo "mat.viTri" trong config.json của loài).
+
+Ảnh (PNG nền trong suốt, nên vuông, ~512×512, một con mắt ở giữa):
+  nham-mat.png   chớp mắt
+  bi-danh.png    khi bị trúng đòn
+  het-mau.png    khi hết máu (mắt X) — cá khựng lại một nhịp rồi biến mất
+  choang.png     khi bị choáng (mắt xoắn ốc)
+Thay bằng ảnh của bạn, giữ nguyên tên file (hoặc đổi tên trong config.json). Xóa ảnh = tắt biểu cảm đó.
+Vẽ phần da/mí màu TRẮNG nếu bật "toMauDa" → game tô theo màu da từng loài ("mat.mauMi").
+
+config.json:
+  "kichThuoc"   phóng to/thu nhỏ mọi ảnh biểu cảm (1 = chuẩn)
+  "chopMat":  "cachNhauTu"/"cachNhauDen" chớp mắt ngẫu nhiên mỗi 2–5 giây; "thoiGian" độ dài một lần chớp (giây)
+  "biDanh":   "thoiGian" giữ vẻ mặt đau bao lâu sau mỗi đòn (giây)
+  "hetMau":   "dungLai" khựng lại với mắt X bao lâu trước khi biến mất (giây)
+  "toMauDa":  true = tô ảnh theo màu da của từng loài; false = giữ màu gốc của ảnh

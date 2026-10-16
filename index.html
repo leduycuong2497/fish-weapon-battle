@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Fish Weapon Battle</title>
+    <meta name="description" content="Đấu trường cá vũ khí tự động & công cụ tạo video Reels" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <button id="panel-toggle" class="icon-btn" aria-expanded="true" aria-controls="panel" title="Thu gọn / mở bảng điều khiển">☰</button>
+      <h1>FISH <span>WEAPON</span> BATTLE</h1>
+      <div id="state-pill" class="pill">Chưa có trận</div>
+    </header>
+
+    <main class="layout">
+      <aside id="panel" class="panel"></aside>
+
+      <section class="stage">
+        <div id="game-wrap" class="game-wrap">
+          <div id="game-container"></div>
+          <div id="rec-badge" class="rec-badge" hidden>● ĐANG GHI <span id="rec-time">0.0</span>s</div>
+        </div>
+        <div id="quickbar" class="quickbar"></div>
+        <div id="live-stats" class="card"></div>
+        <div id="record-panel" class="card"></div>
+      </section>
+    </main>
+
+    <div id="results-modal" class="modal" hidden></div>
+    <div id="toast" class="toast" hidden></div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

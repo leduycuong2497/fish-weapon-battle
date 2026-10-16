@@ -1,0 +1,49 @@
+THƯ MỤC MÔ HÌNH 3D — HƯỚNG DẪN
+===============================
+Dùng khi "Kiểu nhân vật" = "Mô hình 3D tự thêm (public/models)". Thiếu file nào → game dùng phần dựng sẵn.
+Sửa xong, lưu lại rồi tải lại trang game (F5).
+
+CẤU TRÚC
+--------
+public/models/
+  bieu-cam/            ← DÙNG CHUNG cho mọi loài: ảnh chớp mắt, bị đánh, hết máu, choáng
+    nham-mat.png  bi-danh.png  het-mau.png  choang.png  config.json
+  swordfish/  pufferfish/  piranha/  stingray/  shark/  tilapia/  arowana/  seahorse/
+    model.glb          ← mô hình con cá (ví dụ tạo bằng Meshy)
+    weapon.glb         ← vũ khí riêng (không bắt buộc)
+    config.json        ← chỉnh hướng, vũ khí, vị trí mắt
+
+CONFIG.JSON CỦA MỖI LOÀI
+------------------------
+"moHinh":
+  "file"        tên file mô hình (mặc định model.glb)
+  "xoayY"       xoay quanh trục đứng (radian). 1.5708 = 90° (hợp với Meshy). Cá bơi ngược → -1.5708,
+                bơi ngang → 0 hoặc 3.1416
+  "xoayX","xoayZ" xoay thêm nếu mô hình bị nằm nghiêng/lộn ngược
+  "nangLen"     nâng (+) / hạ (−) mô hình, đơn vị bán kính cá (ví dụ 0.2)
+  "nhinTuTren"  true cho cá dẹt (cá đuối) — thân không lắc ngang khi bơi
+  (Kích thước: tất cả mô hình tự co giãn bằng nhau — chỉnh ở src/appsettings.js, mục FISH_SIZES.modelLength)
+
+"vuKhi":
+  "file"        tên file vũ khí (mặc định weapon.glb)
+  "dao"         game TỰ NHẬN đầu mũi (kiếm, gai, trượng điện: đầu mảnh ra ngoài; chùy, dao, giáo, móc: đầu to
+                ra ngoài). Nếu vẫn bị cầm ngược thì đặt true để đảo đầu chuôi ↔ mũi
+  "dai","day"   dài / dày hơn (1 = đúng tầm đánh thật)
+  "dayRa"       đẩy vũ khí ra xa thân (đơn vị bán kính cá)
+  "tuXoay"      tự xoay quanh trục dọc (ví dụ 6 cho mũi khoan)
+  "huongMui"    "phai" / "trai": cho bản vũ khí nằm phẳng (mặt rộng quay lên camera) và mũi cong chĩa sang
+                phải / trái so với hướng vũ khí chĩa ra; "xoay": mũi cong luôn chĩa theo chiều xoay của vũ khí
+                (dao "chém tới", tự lật khi đổi chiều — Piranha đang dùng). Bỏ trống = giữ nguyên
+  Piranha dùng 2 bản sao đối nhau; cá nóc dùng 8 bản sao quanh thân (file chỉ cần 1 cái gai).
+
+"mat":   (để hiện biểu cảm dùng chung đúng chỗ mắt)
+  "viTri"       danh sách mắt [x, y, z] theo bán kính cá. x: dọc thân (mũi > 0), y: lên trên, z: hai bên
+                ví dụ cá mập búa: [[1.02, -0.02, 0.56], [1.02, -0.02, -0.56]]
+                để trống [] = không hiện biểu cảm cho loài này
+  "banKinh"     cỡ mắt (ví dụ 0.09)
+  "mauMi"       màu da quanh mắt "#RRGGBB" — tô cho ảnh nhắm mắt / bị đánh khớp màu cá
+
+LƯU Ý
+-----
+- File .glb nên dưới ~30.000 đa giác và ~10 MB; file quá nặng làm trận đông cá bị giật.
+- Mở F12 → Console để xem dòng "[Fish3D] đã nạp mô hình: ..." hoặc báo lỗi nạp file.

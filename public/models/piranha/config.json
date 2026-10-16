@@ -1,0 +1,24 @@
+{
+  "moHinh": {
+    "file": "model.glb",
+    "xoayY": 1.5708,
+    "xoayX": 0,
+    "xoayZ": 0,
+    "nangLen": 0,
+    "nhinTuTren": false
+  },
+  "vuKhi": {
+    "file": "weapon.glb",
+    "dao": false,
+    "dai": 1,
+    "day": 1,
+    "dayRa": 0,
+    "tuXoay": 0,
+    "huongMui": "xoay"
+  },
+  "mat": {
+    "viTri": [],
+    "banKinh": 0.1,
+    "mauMi": "#e53935"
+  }
+}

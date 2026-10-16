@@ -1,0 +1,24 @@
+{
+  "kichThuoc": 1.0,
+  "chopMat": {
+    "anh": "nham-mat.png",
+    "cachNhauTu": 2,
+    "cachNhauDen": 5,
+    "thoiGian": 0.16,
+    "toMauDa": true
+  },
+  "biDanh": {
+    "anh": "bi-danh.png",
+    "thoiGian": 0.4,
+    "toMauDa": true
+  },
+  "hetMau": {
+    "anh": "het-mau.png",
+    "dungLai": 0.45,
+    "toMauDa": false
+  },
+  "biChoang": {
+    "anh": "choang.png",
+    "toMauDa": false
+  }
+}
